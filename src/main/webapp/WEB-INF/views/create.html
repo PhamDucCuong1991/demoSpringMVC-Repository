@@ -9,7 +9,10 @@
   <table>
     <tr>
       <td>Name:</td>
-      <td><input type="text" name="name" th:value="${name}"/></td>
+      <td>
+        <input type="text" name="name" th:value="${name}"/>
+        <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" >Invalid Age</p>
+      </td>
     </tr>
     <tr>
       <td>Price:</td>

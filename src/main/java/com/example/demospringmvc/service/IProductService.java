@@ -2,6 +2,8 @@ package com.example.demospringmvc.service;
 
 import com.example.demospringmvc.model.Product;
 
-public interface IProductService extends IGeneralService<Product>{
+import java.util.List;
 
+public interface IProductService extends IGeneralService<Product>{
+    List<Product> findAllByName(String name);
 }

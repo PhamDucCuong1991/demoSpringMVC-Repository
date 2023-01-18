@@ -111,6 +111,8 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
         Properties properties = new Properties();
         properties.setProperty("hibernate.hbm2ddl.auto", "update"); // hỗ trợ upload cấu trúc bảng
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect"); // loại csdl là MySQL5
+        properties.setProperty("spring.jpa.show-sql", "true");
+
         return properties;
     }
 }

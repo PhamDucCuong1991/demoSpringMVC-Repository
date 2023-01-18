@@ -1,12 +1,17 @@
 package com.example.demospringmvc.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 @Entity
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotEmpty(message = "User's email cannot be empty.")
     private String name;
     private Double price;
     @ManyToOne
@@ -47,7 +52,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(Long id, String name, Double price, Category category) {
+    public Product(Long id,@NotEmpty String name, Double price, Category category) {
         this.id = id;
         this.name = name;
         this.price = price;

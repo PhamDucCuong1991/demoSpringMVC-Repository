@@ -6,6 +6,7 @@ import com.example.demospringmvc.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -15,7 +16,7 @@ public class ProductService implements IProductService {
 
     @Override
     public Iterable<Product> findAll() {
-        return iProductRepository.findAll();
+        return iProductRepository.findAllByOrderByIdAsc();
     }
 
     @Override
@@ -31,5 +32,10 @@ public class ProductService implements IProductService {
     @Override
     public void remove(Long id) {
         iProductRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Product> findAllByName(String name) {
+        return iProductRepository.findAllByNameContaining(name);
     }
 }
